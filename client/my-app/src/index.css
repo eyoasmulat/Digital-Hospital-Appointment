@@ -2,13 +2,23 @@
 
 @import "tailwindcss";
 
+:root {
+  --brand-navy: #172554;
+  --brand-blue: #2563eb;
+  --brand-blue-hover: #1d4ed8;
+  --brand-blue-light: #eff6ff;
+  --brand-blue-soft: #dbeafe;
+  --brand-border: #bfdbfe;
+  --brand-text: #1e293b;
+}
+
 html,
 body {
   height: 100%;
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
-  background-color: #000;
-  color: white;
+  background-color: #f8fafc;
+  color: var(--brand-text);
 }
 
 .bg-img {
@@ -16,4 +26,117 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Keep primary blue-family Tailwind utilities aligned across all app routes. */
+[class~="bg-blue-50"],
+[class~="bg-indigo-50"],
+[class~="bg-purple-50"],
+[class~="from-blue-50"],
+[class~="from-indigo-50"],
+[class~="from-purple-50"],
+[class~="to-blue-50"],
+[class~="to-indigo-50"],
+[class~="to-purple-50"] {
+  background-color: var(--brand-blue-light) !important;
+}
+
+[class~="bg-blue-100"],
+[class~="bg-indigo-100"],
+[class~="bg-purple-100"],
+[class~="from-blue-100"],
+[class~="from-indigo-100"],
+[class~="from-purple-100"],
+[class~="to-blue-100"],
+[class~="to-indigo-100"],
+[class~="to-purple-100"] {
+  background-color: var(--brand-blue-soft) !important;
+}
+
+[class~="bg-blue-900"],
+[class~="bg-indigo-900"],
+[class~="bg-purple-900"],
+[class~="from-blue-900"],
+[class~="from-indigo-900"],
+[class~="from-purple-900"],
+[class~="to-blue-900"],
+[class~="to-indigo-900"],
+[class~="to-purple-900"] {
+  background-color: var(--brand-navy) !important;
+  background-image: none !important;
+}
+
+[class~="bg-blue-500"],
+[class~="bg-blue-600"],
+[class~="bg-blue-700"],
+[class~="bg-indigo-500"],
+[class~="bg-indigo-600"],
+[class~="bg-indigo-700"],
+[class~="bg-purple-500"],
+[class~="bg-purple-600"],
+[class~="bg-purple-700"] {
+  background-color: var(--brand-blue) !important;
+  background-image: none !important;
+}
+
+[class~="hover:bg-blue-600"]:hover,
+[class~="hover:bg-blue-700"]:hover,
+[class~="hover:bg-indigo-600"]:hover,
+[class~="hover:bg-indigo-700"]:hover,
+[class~="hover:bg-purple-600"]:hover,
+[class~="hover:bg-purple-700"]:hover {
+  background-color: var(--brand-blue-hover) !important;
+  background-image: none !important;
+}
+
+[class~="text-blue-500"],
+[class~="text-blue-600"],
+[class~="text-blue-700"],
+[class~="text-indigo-500"],
+[class~="text-indigo-600"],
+[class~="text-indigo-700"],
+[class~="text-purple-500"],
+[class~="text-purple-600"],
+[class~="text-purple-700"] {
+  color: var(--brand-blue) !important;
+}
+
+[class~="text-blue-800"],
+[class~="text-blue-900"],
+[class~="text-indigo-800"],
+[class~="text-indigo-900"],
+[class~="text-purple-800"],
+[class~="text-purple-900"] {
+  color: var(--brand-navy) !important;
+}
+
+[class~="hover:text-blue-600"]:hover,
+[class~="hover:text-blue-700"]:hover,
+[class~="hover:text-blue-800"]:hover,
+[class~="hover:text-indigo-600"]:hover,
+[class~="hover:text-indigo-700"]:hover,
+[class~="hover:text-indigo-800"]:hover,
+[class~="hover:text-purple-600"]:hover,
+[class~="hover:text-purple-700"]:hover,
+[class~="hover:text-purple-800"]:hover {
+  color: var(--brand-blue-hover) !important;
+}
+
+[class~="border-blue-100"],
+[class~="border-blue-200"],
+[class~="border-indigo-100"],
+[class~="border-indigo-200"],
+[class~="border-purple-100"],
+[class~="border-purple-200"] {
+  border-color: var(--brand-border) !important;
+}
+
+[class~="ring-blue-500"],
+[class~="ring-indigo-500"],
+[class~="ring-purple-500"] {
+  --tw-ring-color: var(--brand-blue) !important;
+}
+
+[class~="bg-gray-100"] {
+  background-color: #f1f5f9 !important;
 }

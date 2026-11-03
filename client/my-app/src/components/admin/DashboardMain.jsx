@@ -499,7 +499,7 @@ const DashboardMain = () => {
             <button
               onClick={generateExcelReport}
               disabled={reportLoading}
-              className={`flex items-center text-sm bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded ${
+              className={`flex items-center text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded ${
                 reportLoading ? "opacity-70" : ""
               }`}
             >

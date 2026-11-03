@@ -28,6 +28,9 @@ const BookAppointment = () => {
     doctorname: "",
   });
   const [doctors, setDoctors] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  const [fetchingDepartments, setFetchingDepartments] = useState(true);
+  const [departmentError, setDepartmentError] = useState("");
   const [loading, setLoading] = useState(false);
   const [fetchingDoctors, setFetchingDoctors] = useState(false);
   const [patientData, setPatientData] = useState({
@@ -36,9 +39,6 @@ const BookAppointment = () => {
     phone: "",
   });
   const navigate = useNavigate();
-
-  // Predefined departments
-  const departments = ["Cardiology", "Neurology", "Orthopedics", "Pediatrics"];
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -86,6 +86,50 @@ const BookAppointment = () => {
 
     fetchPatientDetails();
   }, [navigate]);
+
+  useEffect(() => {
+    let isCurrent = true;
+
+    const fetchDepartments = async () => {
+      try {
+        setFetchingDepartments(true);
+        setDepartmentError("");
+
+        const response = await axios.get(
+          "http://localhost:5000/admin/getAllDepartments"
+        );
+        if (!response.data.success || !Array.isArray(response.data.departments)) {
+          throw new Error(response.data.message || "Failed to fetch departments");
+        }
+
+        if (isCurrent) {
+          setDepartments(
+            response.data.departments
+              .map((department) =>
+                typeof department === "string" ? department : department.name
+              )
+              .filter((name) => typeof name === "string" && name.trim())
+          );
+        }
+      } catch (error) {
+        console.error("Error fetching departments:", error);
+        if (isCurrent) {
+          setDepartments([]);
+          setDepartmentError("Unable to load departments. Please try again later.");
+          toast.error("Failed to fetch departments");
+        }
+      } finally {
+        if (isCurrent) {
+          setFetchingDepartments(false);
+        }
+      }
+    };
+
+    fetchDepartments();
+    return () => {
+      isCurrent = false;
+    };
+  }, []);
 
   // Fetch doctors when department changes
   useEffect(() => {
@@ -290,14 +334,26 @@ const BookAppointment = () => {
                   onChange={handleChange}
                   className="px-4 py-2 border border-gray-300 focus:border-purple-500 rounded-lg focus:ring-2 focus:ring-purple-500 w-full text-gray-700"
                   required
+                  disabled={fetchingDepartments || departments.length === 0}
                 >
-                  <option value="">Select Department</option>
-                  {departments.map((dept, idx) => (
-                    <option key={idx} value={dept}>
-                      {dept}
+                  <option value="">
+                    {fetchingDepartments
+                      ? "Loading departments..."
+                      : departments.length
+                      ? "Select Department"
+                      : "No departments available"}
+                  </option>
+                  {departments.map((department) => (
+                    <option key={department} value={department}>
+                      {department}
                     </option>
                   ))}
                 </select>
+                {departmentError && (
+                  <p className="mt-1 text-sm text-red-600" role="alert">
+                    {departmentError}
+                  </p>
+                )}
               </div>
 
               {/* Date */}

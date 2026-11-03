@@ -321,7 +321,7 @@ const PatientDashboard = () => {
         <div className="gap-6 grid grid-cols-1 md:grid-cols-2 mt-6">
           <Link
             to="/BookAppointment"
-            className="flex flex-col justify-center items-center bg-gradient-to-r from-blue-300 to-blue-500 shadow-md p-6 rounded-lg text-white hover:scale-105 transition transform"
+            className="flex flex-col justify-center items-center bg-blue-600 shadow-md p-6 rounded-lg text-white hover:bg-blue-700 hover:scale-105 transition transform"
             onClick={() => setSidebarOpen(false)}
           >
             <FaCalendarPlus size={40} />
@@ -332,7 +332,7 @@ const PatientDashboard = () => {
           <div className="relative">
             <Link
               to="/AppointmentHistory"
-              className="flex flex-col justify-center items-center bg-gradient-to-r from-green-300 to-green-500 shadow-md p-6 rounded-lg w-full text-white hover:scale-105 transition transform"
+              className="flex flex-col justify-center items-center bg-blue-600 hover:bg-blue-700 shadow-md p-6 rounded-lg w-full text-white hover:scale-105 transition transform"
               onClick={() => setSidebarOpen(false)}
             >
               <div className="relative flex items-center space-x-4">

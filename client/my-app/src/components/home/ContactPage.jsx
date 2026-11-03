@@ -135,14 +135,14 @@ const ContactForm = () => {
       icon: <FaMapMarkerAlt className="text-2xl" />,
       title: "LOCATION",
       details: ["Bahir Dar, Ethiopia", " Subcity, Keble  03"],
-      color: "bg-gradient-to-br from-emerald-500 to-emerald-600",
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
       delay: 0.4,
     },
     {
       icon: <FaClock className="text-2xl" />,
       title: "BUSINESS HOURS",
       details: ["Mon - Fri: 8:30 am - 5:30 pm", "Sat: 9 am - 1 pm"],
-      color: "bg-gradient-to-br from-violet-500 to-violet-600",
+      color: "bg-gradient-to-br from-blue-500 to-blue-600",
       delay: 0.6,
     },
   ];

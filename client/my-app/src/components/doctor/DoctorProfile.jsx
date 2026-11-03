@@ -305,7 +305,7 @@ function DoctorProfile() {
                 </span>
                 <button
                   onClick={handlePhotoUpload}
-                  className="bg-green-500 hover:bg-green-600 text-white text-sm px-3 py-1 rounded"
+                  className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded"
                 >
                   Upload
                 </button>

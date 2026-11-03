@@ -200,31 +200,31 @@ const AboutUs = () => {
                       title: "Innovation",
                       description:
                         "Embracing cutting-edge technologies and treatment methodologies to improve outcomes.",
-                      color: "from-purple-100 to-purple-50",
+                      color: "from-blue-100 to-blue-50",
                     },
                     {
                       title: "Integrity",
                       description:
                         "Maintaining the highest ethical standards in all our decisions and actions.",
-                      color: "from-teal-100 to-teal-50",
+                      color: "from-blue-100 to-blue-50",
                     },
                     {
                       title: "Excellence",
                       description:
                         "Striving for the highest quality in patient care, service and clinical outcomes.",
-                      color: "from-indigo-100 to-indigo-50",
+                      color: "from-blue-100 to-blue-50",
                     },
                     {
                       title: "Collaboration",
                       description:
                         "Working together across disciplines to provide comprehensive, coordinated care.",
-                      color: "from-cyan-100 to-cyan-50",
+                      color: "from-blue-100 to-blue-50",
                     },
                     {
                       title: "Community",
                       description:
                         "Serving and improving the health of our local and global communities.",
-                      color: "from-sky-100 to-sky-50",
+                      color: "from-blue-100 to-blue-50",
                     },
                   ].map((value, index) => (
                     <motion.div

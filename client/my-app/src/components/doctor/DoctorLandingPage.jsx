@@ -403,7 +403,7 @@ const DoctorLandingPage = () => {
                       View Appointments
                     </button>
                     <button
-                      className="bg-green-600 hover:bg-green-700 shadow-md px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-white text-sm md:text-base"
+                      className="bg-blue-600 hover:bg-blue-700 shadow-md px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium text-white text-sm md:text-base"
                       onClick={() => setActiveContent("patients")}
                     >
                       View Patients

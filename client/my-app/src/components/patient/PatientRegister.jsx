@@ -14,7 +14,8 @@ import {
   FaShieldAlt,
   FaMobileAlt,
 } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
+import "../auth/AuthPages.css";
 
 const PatientRegister = () => {
   const navigate = useNavigate();
@@ -250,32 +251,24 @@ const PatientRegister = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4 min-h-screen">
-      {/* Background Elements */}
-      <div className="top-0 left-0 z-0 absolute w-full h-full overflow-hidden">
-        <div className="-top-20 -left-20 absolute bg-blue-200 opacity-50 blur-xl rounded-full w-72 h-72"></div>
-        <div className="top-1/3 -right-20 absolute bg-purple-200 opacity-50 blur-xl rounded-full w-64 h-64"></div>
-        <div className="bottom-0 left-1/4 absolute bg-indigo-200 opacity-50 blur-xl rounded-full w-80 h-80"></div>
-      </div>
-
-      {/* Back to Home Button */}
+    <div className="auth-page">
       <button
         onClick={() => navigate("/")}
-        className="top-6 left-6 z-50 fixed flex items-center gap-2 bg-white/80 shadow-sm backdrop-blur-sm px-4 py-2 rounded-full text-indigo-600 hover:text-indigo-800 transition-colors"
+        className="auth-home-link"
       >
         <FaArrowLeft className="text-lg" />
         <span className="font-medium">Back to Home</span>
       </button>
 
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="z-10 bg-white shadow-2xl rounded-2xl w-full max-w-4xl overflow-hidden"
+        className="auth-layout"
       >
-        <div className="md:flex">
+        <div className="auth-layout-inner">
           {/* Left Side - Illustration */}
-          <div className="hidden md:block bg-gradient-to-br from-indigo-600 to-purple-600 p-8 md:w-2/5 text-white">
+          <div className="auth-brand-panel">
             <div className="flex flex-col justify-center items-center h-full">
               <div className="mb-8">
                 <div className="flex justify-center items-center bg-white/20 mb-6 p-4 rounded-full w-20 h-20">
@@ -290,7 +283,7 @@ const PatientRegister = () => {
                   <div className="bg-white/20 p-2 rounded-full">
                     <FaShieldAlt className="text-lg" />
                   </div>
-                  <p className="text-sm">Secure & WHO Compliant</p>
+                  <p className="text-sm">Your health information stays private</p>
                 </div>
 
                 <div className="flex items-center gap-3 bg-white/10 p-3 rounded-lg">
@@ -315,7 +308,24 @@ const PatientRegister = () => {
           </div>
 
           {/* Right Side - Form */}
-          <div className="p-8 w-full md:w-3/5">
+          <div className="auth-form-panel">
+            <nav className="auth-tabs" aria-label="Account access">
+              <button
+                type="button"
+                className="auth-tab"
+                onClick={() => navigate("/login")}
+              >
+                Log in
+              </button>
+              <button
+                type="button"
+                className="auth-tab"
+                aria-current="page"
+
+              >
+                Create account
+              </button>
+            </nav>
             <div className="mb-6 text-center">
               <div className="inline-flex justify-center items-center bg-indigo-100 mb-4 p-3 rounded-full">
                 <FaUserPlus className="text-indigo-600 text-2xl" />
@@ -372,7 +382,7 @@ const PatientRegister = () => {
 
             <AnimatePresence mode="wait">
               {showOtpModal ? (
-                <motion.div
+                <Motion.div
                   key="otp-form"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -414,7 +424,7 @@ const PatientRegister = () => {
                     </button>
                   </div>
 
-                  <motion.button
+                  <Motion.button
                     type="button"
                     onClick={handleOtpVerification}
                     whileHover={{ scale: 1.02 }}
@@ -449,10 +459,10 @@ const PatientRegister = () => {
                     ) : (
                       "Verify Account"
                     )}
-                  </motion.button>
-                </motion.div>
+                  </Motion.button>
+                </Motion.div>
               ) : (
-                <motion.form
+                <Motion.form
                   key="registration-form"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -469,7 +479,7 @@ const PatientRegister = () => {
                 >
                   <AnimatePresence mode="wait">
                     {currentStep === 1 ? (
-                      <motion.div
+                      <Motion.div
                         key="step1"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -536,10 +546,10 @@ const PatientRegister = () => {
                               maxLength="10"
                             />
                           </div>
-                        </div>
-                      </motion.div>
+                          </div>
+                      </Motion.div>
                     ) : (
-                      <motion.div
+                      <Motion.div
                         key="step2"
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -601,7 +611,7 @@ const PatientRegister = () => {
                             />
                           </div>
                         </div>
-                      </motion.div>
+                      </Motion.div>
                     )}
                   </AnimatePresence>
 
@@ -615,7 +625,7 @@ const PatientRegister = () => {
                         Back
                       </button>
                     )}
-                    <motion.button
+                    <Motion.button
                       type="submit"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -655,9 +665,9 @@ const PatientRegister = () => {
                       ) : (
                         "Register Now"
                       )}
-                    </motion.button>
+                    </Motion.button>
                   </div>
-                </motion.form>
+                </Motion.form>
               )}
             </AnimatePresence>
 
@@ -684,7 +694,7 @@ const PatientRegister = () => {
             )}
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 };
